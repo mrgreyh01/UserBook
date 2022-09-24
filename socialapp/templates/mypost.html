@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mypost">
+        
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: "POST",
+            url: "vpost",
+            // dataType:"JSON",
+            data: {
+
+                'ChildID': $('input[id=ChildID]').val(),
+                // 'ChildID': $("#Edit #ChildID").text()
+
+            },
+            success: function (data,status) 
+            {
+                $('#Delete-msg').empty();
+                
+                if (data) 
+                {
+                    console.log(data);
+                    $('#Delete-msg').append("<div class='alert alert-success'><strong>Success!</strong> Data Deleted Successfully with status code: '" + status +"'</div>");
+                }
+                
+            },
+            error: function (xhr, status, error) 
+            {
+                $('#Delete-msg').append("<div class='alert alert-danger'><strong>Error!</strong> Data not Deleted Successfully with status code: '" + status +"'</div>");
+            }  
+        });
+        
+    })
+</script>
+</html>

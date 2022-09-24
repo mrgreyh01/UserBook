@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Font Icon -->
+    <link rel="stylesheet" href='{% static "fonts/material-icon/css/material-design-iconic-font.min.css" %}'>
+
+    <!-- Main css -->
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+</head>
+<body>
+    <div class="main">
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src='{% static "images/signin-image.jpg" %}' alt="sing up image"></figure>
+                        <a href="/api/signup" class="signup-image-link">Create an account</a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Log In</h2>
+                        <form method="POST" action="/api/auth" class="register-form" id="login-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="your_name"><i class="zmdi zmdi-account material-icons-phone"></i></label>
+                                <input type="number" name="mobile" id="your_name" placeholder="Your Mobile No."/>
+                            </div>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="your_pass" placeholder="Password"/>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" id="signin" class="form-submit" value="Log in"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+<script src='{% static "vendor/jquery/jquery.min.js" %}'></script>
+<script src='{% static "js/main.js" %}'></script>
+</html>
